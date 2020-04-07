@@ -44,7 +44,7 @@ const {name, year} = Sandra;
 const student = Sandra; //"student" object is a reference to Sandra
  */
 
- //////////Challenge questions
+ /* //////////Challenge questions
  const presidents = [
      { name: "Donald Trump", terms: 1, party: "R" },
      { name: "Barack Obama", terms: 2, party: "D" },
@@ -67,17 +67,66 @@ console.log(result);
 
  //2} Filter all presidents to leave only one term Republican presidents HINT use If statement
 
-
+const oneTermRep = presidents.filter (function(pres){
+    if(pres.terms === 1 && pres.party === "R") {
+        return true;
+    }
+});
 
  //3) Return only the last three presidents
 const last3 = presidents.slice(-3);
 console.log(last3); 
 
  //4} log all dems who served 2 terms. HINT use chain filter, filter and slice
-/* const dem = presidents.filter (function (president) {
-  return president.terms === 2 && president.party === "D";
-}) .map(function (president) {
-    return president.name;
-});  
-console.log(dem);
+
+
+const Dems2 = presidents 
+    .filter((presidents) => president.party === "D")
+    .filter((el) => el.terms === 2);
 */
+
+///////////////////////////////////
+//DOM manipulation day 1
+
+/* 
+const items = document.querySelectorAll(".list-item"); 
+//querySelectorAll returns NODELIST not an Array
+const itemArr = Array.from(items);
+headerClass.textContent = "hi"; */
+/* 
+const headerClass = document.querySelector
+("#Idheader"); 
+const toggle = document.querySelector(".toggle")
+toggle.addEventListener("click", function() {
+    headerClass.classList.toggle("Karen"); //toggle accepts argument
+}); */
+//headerClass.classList.add("Karen");
+//headerClass.classList.remove("Karen");
+
+/* const background = document.querySelector(".background");
+const changeBtn = document.querySelector(".button");
+const headerTwo = document.querySelector(".header-two");
+
+changeBtn.addEventListener("click", function() {
+    if (background.style.backgroundColor !== "rgb(255, 0, 0)") {
+        background.style.backgroundColor = "rgb(255, 0, 0)";
+        headerTwo.textContent = "RED";
+    } else {
+        background.style.backgroundColor = "rgb(0, 0, 255)";
+        headerTwo.textContent = "BLUE";
+    }
+});
+ */
+
+///////////////////////
+//Challenge use const = R, const = B, const = G to create button with random background color, use math.random and math.floor
+const background = document.querySelector(".background");
+const button = document.querySelector(".button");
+
+button.addEventListener("click", function() {
+    const R = Math.floor(Math.random() * 256);
+    const G = Math.floor(Math.random() * 256);
+    const B = Math.floor(Math.random() * 256);
+    background.style.backgroundColor = "rgb("+R+","+G+","+B+")";
+});
+
